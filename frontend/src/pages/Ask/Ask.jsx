@@ -6,7 +6,9 @@ import classes from "./ask.module.css";
 import { FaRegArrowAltCircleRight } from "react-icons/fa";
 
 const Ask = () => {
-  const [successMessage, setsuccessMessage] = useState("");
+  // State to handle messages for edit question
+  const [message, setMessage] = useState("");
+  const [messageType, setMessageType] = useState("");
 
   const navigate = useNavigate();
   const titleDom = useRef();
@@ -18,13 +20,8 @@ const Ask = () => {
     const titleValue = titleDom.current.value;
     const questionValue = questionDom.current.value;
 
-    if (!titleValue || !questionValue) {
-      alert("please provide all required informations");
-      return;
-    }
-
     try {
-      const { data } = await axios.post(
+      const { data, status } = await axios.post(
         "/questions/ask",
         {
           title: titleValue,
@@ -36,15 +33,27 @@ const Ask = () => {
           },
         }
       );
-      setsuccessMessage("successfully posted redirecting to home page");
 
-      // Redirect to home after 2 seconds
-      setTimeout(() => {
-        navigate("/home");
-      }, 2000);
+      if (status === 201 && data?.msg) {
+        // Check if response is OK and then set success message
+        setMessage(
+          data?.msg || "Question posted successfully, redirecting to home"
+        );
+        setMessageType("success");
+
+        setTimeout(() => {
+          navigate("/home");
+        }, 2000);
+      } else {
+        // If response is not successful, set error message
+        setMessage(data?.msg || "Posting failed. Please try again.");
+        setMessageType("error");
+      }
     } catch (error) {
-      alert(error);
-      console.log(error);
+      const errorMessage =
+        error?.response?.data?.msg || "posting failed. Please try again.";
+      setMessage(errorMessage);
+      setMessageType("error");
     }
   }
 
@@ -84,8 +93,16 @@ const Ask = () => {
         <div className={classes["post-question"]}>
           <h2>Post Your Question</h2>
           <div className={classes.successMessage}>
-            {successMessage && (
-              <p style={{ color: "green" }}>{successMessage}</p>
+            {message && (
+              <p
+                style={{
+                  color: messageType === "error" ? "red" : "green",
+                  fontWeight: "bold",
+                  textAlign: "center",
+                }}
+              >
+                {message}
+              </p>
             )}
           </div>
           <form onSubmit={handleSubmit}>
