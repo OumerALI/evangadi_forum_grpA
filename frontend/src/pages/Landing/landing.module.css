@@ -1,15 +1,18 @@
 body{
     background-image: url("https://www.evangadi.com/themes/humans/assets/images/misc/bg-svg-f.svg");
+    background-size: cover; 
+    background-position: center;
+    margin: 0; 
 }
 
-main {
+.main__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* padding: 50px; */
   height: 100vh;
-  /* background: #ffffff; */
+  
 }
+
 .form-container {
   width: 50%;
   height: 80%;
@@ -28,13 +31,35 @@ main {
   transition: transform 0.5s ease-in-out;
 }
 
-.form-wrapper.slide-left {
-  transform: translateX(-50%);
+
+/* Sliding effect */
+.slide-in-left {
+  animation: slideInLeft 0.3s forwards;
 }
 
-.form-wrapper.slide-right {
-  transform: translateX(0);
+.slide-in-right {
+  animation: slideInRight 0.3s forwards;
 }
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+
 
 main .info {
   width: 50%;
@@ -60,7 +85,7 @@ main .info h4{
 }
 main .info p {
   font-size: 16px;
-  /* line-height: 1.6; */
+  line-height: 1.6;
   color: #555;
 }
 
@@ -81,4 +106,40 @@ main .info button a {
 
 main .info button:hover {
   background: #cc5200;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column; 
+        padding: 10px;
+    }
+
+    .form-container {
+        width: 90%; 
+        max-width: none; 
+    }
+
+    main .info h1 {
+        font-size: 22px; 
+    }
+
+    main .info p {
+        font-size: 12px; 
+    }
+
+    main .info button {
+        width: 100%; 
+    }
+}
+
+@media (max-width: 480px) {
+    main .info h1 {
+        font-size: 20px; 
+    }
+
+    main .info p {
+        font-size: 11px; 
+    }
 }
