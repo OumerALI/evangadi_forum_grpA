@@ -6,27 +6,43 @@ import { Link } from "react-router-dom";
 import PwChange from "../PwChange/PwChange";
 
 const Landing = () => {
+
  
 
   // State to track which form to show (Login, Register, or PasswordReset)
   const [currentForm, setCurrentForm] = useState("login"); // Default form is login
+=======
+
+  // State to track the current form
+
+  const [animationDirection, setAnimationDirection] = useState(""); 
+
 
   // Function to switch to login form
-  const switchToLogin = () => setCurrentForm("login");
+  const switchToLogin = () => {
+    setAnimationDirection("slide-in-left");
+    setTimeout(() => setCurrentForm("login"), 300); 
+  };
 
   // Function to switch to register form
-  const switchToRegister = () => setCurrentForm("register");
+  const switchToRegister = () => {
+    setAnimationDirection("slide-in-right");
+    setTimeout(() => setCurrentForm("register"), 300);
+  };
 
   // Function to switch to password reset form
-  const switchToPasswordReset = () => setCurrentForm("passwordReset");
+  const switchToPasswordReset = () => {
+    setAnimationDirection("slide-in-left");
+    setTimeout(() => setCurrentForm("passwordReset"), 300);
+  };
 
   return (
-    <>
-      {/* <Header /> */}
-
-      <main>
+    <div className={classes["main__wrapper"]}>
+      <main className={classes["main__container"]}>
         <div className={classes["form-container"]}>
-          <div className={classes["form-wrapper"]}>
+          <div
+            className={`${classes["form-wrapper"]} ${classes[animationDirection]}`}
+          >
             {currentForm === "login" && (
               <Login
                 switchToRegister={switchToRegister}
@@ -47,9 +63,9 @@ const Landing = () => {
 
         <div className={classes.info}>
           <h4>About</h4>
-          <h1>Evangadi Networks</h1>
+          <h1>Evangadi Networks Q & A</h1>
           <p>
-            No matter what stage of life you are in, whether you’re just
+            No matter what stage of life you are in, whether you are just
             starting elementary school or being promoted to CEO of a Fortune 500
             company, you have much to offer to those who are trying to follow in
             your footsteps.
@@ -64,8 +80,7 @@ const Landing = () => {
           </button>
         </div>
       </main>
-      {/* <Footer /> */}
-    </>
+    </div>
   );
 };
 

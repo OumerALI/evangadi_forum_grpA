@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "../../Api/axiosConfig";
 import { AppState } from "../../App";
@@ -14,11 +14,14 @@ const Answer = () => {
 
   const [answers, setanswers] = useState([]);
   const [newAnswer, setNewAnswer] = useState("");
-  const [successMessage, setsuccessMessage] = useState("");
+
+  // State to handle messages for edit question
+  const [message, setMessage] = useState("");
+  const [messageType, setMessageType] = useState("");
 
   const token = localStorage.getItem("token");
+
   const { user } = useContext(AppState);
-  // const answerDom = useRef();
 
   async function fetchQuestion() {
     try {
@@ -48,7 +51,6 @@ const Answer = () => {
       console.error("Error:", error?.response?.data?.msg);
     }
   }
-  // console.log(answers);
 
   useEffect(() => {
     fetchQuestion();
@@ -57,11 +59,6 @@ const Answer = () => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-
-    if (!newAnswer) {
-      alert("please provide answer first");
-      return;
-    }
 
     setanswers([
       {
@@ -73,7 +70,7 @@ const Answer = () => {
     ]);
 
     try {
-      const { data } = await axios.post(
+      const { data, status } = await axios.post(
         "/answer",
         { questionid: questionid, answer: newAnswer },
         {
@@ -83,14 +80,24 @@ const Answer = () => {
         }
       );
 
-      setsuccessMessage("successfully posted redirecting to home page");
+      if (status === 201 && data?.msg) {
+        // Check if response is OK and then set success message
+        setMessage(data?.msg || "Posted successfully, redirecting to home");
+        setMessageType("success");
 
-      setTimeout(() => {
-        navigate("/home");
-      }, 2000);
+        setTimeout(() => {
+          navigate("/home");
+        }, 2000);
+      } else {
+        // If response is not successful, set error message
+        setMessage(data?.msg || "Posting failed. Please try again.");
+        setMessageType("error");
+      }
     } catch (error) {
-      alert(error);
-      console.log(error);
+      const errorMessage =
+        error?.response?.data?.msg || "Posting failed. Please try again.";
+      setMessage(errorMessage);
+      setMessageType("error");
 
       // Rollback if the API call fails
       setanswers(answers);
@@ -145,6 +152,15 @@ const Answer = () => {
                   <div className={classes["answer-content"]}>
                     <p>{e.answer}</p>
                   </div>
+                  {e?.username == user?.username ? (
+                    <button className={classes.button}>
+                      <Link to={`/edit-answer/${e?.answerid}`}>
+                        Edit your answer
+                      </Link>
+                    </button>
+                  ) : (
+                    ""
+                  )}
                 </div>
               ))}
             </div>
@@ -155,8 +171,16 @@ const Answer = () => {
 
         <div className={classes["post-answer"]}>
           <div className={classes.successMessage}>
-            {successMessage && (
-              <p style={{ color: "green" }}>{successMessage}</p>
+            {message && (
+              <p
+                style={{
+                  color: messageType === "error" ? "red" : "green",
+                  fontWeight: "bold",
+                  textAlign: "center",
+                }}
+              >
+                {message}
+              </p>
             )}
           </div>
           <form onSubmit={handleSubmit}>

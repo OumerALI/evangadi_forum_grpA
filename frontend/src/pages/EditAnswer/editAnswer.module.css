@@ -1,0 +1,46 @@
+.edit__answer__container {
+  background: #fff;
+  min-height: 80vh;
+}
+
+.post-answer {
+  
+  max-width: 80%;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  
+
+}
+.edit  {
+    text-align: center;
+}
+
+.successMessage {
+  text-align: center;
+}
+
+.answer-input {
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  resize: none;
+  height: 120px;
+  margin-bottom: 15px;
+}
+
+.post-answer-btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.post-answer-btn:hover {
+  background-color: #0056b3;
+}
