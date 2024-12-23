@@ -60,4 +60,48 @@ async function postAnswer(req,res) {
     }
 }
 
-module.exports = { getAnswer, postAnswer };
+const editAnswer = async (req, res) => {
+  const { answerid } = req.params; // The ID of the answer to be edited
+  const { answer } = req.body; // The new answer text
+
+  // Check if the answer is provided and if answerid exists
+  if (!answer || !answerid) {
+    return res
+      .status(StatusCodes.BAD_REQUEST)
+      .json({ msg: "Please provide updated answer." });
+  }
+
+  const { userid } = req.user; // Destructure the userid from the request object (set by auth middleware)
+
+  try {
+    // Check if the answer exists in the database
+    const [existingAnswer] = await dbConection.query(
+      "SELECT * FROM answers WHERE answerid = ?",
+      [answerid]
+    );
+
+    // Handle appending the updated timestamp to the answer
+    let updatedAnswer = answer;
+    updatedAnswer = `${updatedAnswer} (Updated on ${new Date().toISOString()})`;
+
+    // Update the answer in the database
+    await dbConection.query(
+      "UPDATE answers SET answer = ? WHERE answerid = ?",
+      [updatedAnswer, answerid]
+    );
+
+    return res
+      .status(StatusCodes.OK)
+      .json({
+        msg: "Answer updated successfully.",
+        updated_answer: updatedAnswer,
+      });
+  } catch (error) {
+    console.log(error.message);
+    return res
+      .status(StatusCodes.INTERNAL_SERVER_ERROR)
+      .json({ msg: "Something went wrong, please try again later" });
+  }
+};
+
+module.exports = { getAnswer, postAnswer, editAnswer };

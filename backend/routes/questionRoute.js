@@ -7,6 +7,7 @@ const {
   ask,
   getAllQuestions,
   getSingleQuestion,
+  editQuestion,
 } = require("../controller/questionController");
 
 // user ask router
@@ -17,5 +18,8 @@ router.get("/all-questions", getAllQuestions);
 
 // single question router
 router.get("/:questionid", getSingleQuestion);
+
+// question edit route
+router.put("/edit-question/:questionid", editQuestion);
 
 module.exports = router;
