@@ -1,0 +1,151 @@
+section{
+ background: #fff;
+ min-height: 80vh;
+}
+
+.answer-page {
+  max-width: 80%;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+}
+
+
+.question-container {
+  margin-bottom: 30px;
+}
+
+.question-container h2 {
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.question {
+  padding-bottom: 10px;
+}
+
+.question-title {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+}
+.question-title strong{
+    border-bottom: 2px solid #ff4500;
+}
+
+.question-icon {
+  margin-right: 10px;
+  font-size: 20px;
+  color: #007bff;
+}
+
+.question-description {
+  font-size: 16px;
+  color: #555;
+  margin-top: 5px;
+  margin-left: 40px;
+}
+
+
+.community-answers {
+  margin-top: 30px;
+}
+
+.community-answers h3 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  padding: 20px 0;
+}
+
+.answer-item {
+  display: flex;
+  align-items: flex-start;
+  background: #f1f1f1;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+
+}
+
+.avatar {
+  font-size: 30px;
+  background-color: #007bff;
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.answer-content {
+  flex: 1;
+  margin-left: 30px;
+}
+
+.username {
+  display: block;
+  font-size: 14px;
+  color: #555;
+  margin-top: 5px;
+}
+
+
+.post-answer {
+  margin-top: 40px;
+}
+
+.successMessage{
+    text-align: center;
+}
+
+.answer-input {
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  resize: none;
+  height: 120px;
+  margin-bottom: 15px;
+}
+
+.post-answer-btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.post-answer-btn:hover {
+  background-color: #0056b3;
+}
+
+.button {
+  background: #ff6600;
+  color: white;
+  padding: 10px 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.button a {
+    
+  text-decoration: none;
+  color: white;
+}
+
+.button:hover {
+  background: #cc5200;
+}
