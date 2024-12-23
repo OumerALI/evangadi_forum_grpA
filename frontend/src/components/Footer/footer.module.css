@@ -1,0 +1,92 @@
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    background: #37415A;
+    color: #ffffff;
+    padding: 40px 20px;
+  }
+  footer a{
+      text-decoration: none;
+      color: #81807D;;
+  }
+  footer h3{
+      color: #ffffff;
+  }
+  
+  /* Styling for the social media SVG icons */
+  .socialMedia_link svg {
+      border: 1px solid var(--color-butn-txt); /* Adds a border around the icons using a CSS variable for color */
+      border-radius: 50%; /* Makes the icons round */
+      width: 50px; /* Sets the width of the icons */
+      height: 50px; /* Sets the height of the icons */
+      padding: 12px; /* Adds padding inside the icons */
+  }
+  
+  /* .socialMedia__link a{
+    width: 100px;
+    height: 100px;
+  } */
+  .social_icons{
+      display: flex;
+      flex-direction: column;
+  }
+  .social_icons a {
+    margin: 0 10px;
+    color: #ffffff;
+    /* font-size: 18px; */
+  }
+  
+  .social_icons a:hover {
+    color: #ff6600;
+  }
+  .links{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+  }
+  
+  .links a {
+    text-decoration: none;
+  }
+  
+  .links a:hover {
+    color: #ff6600;
+  }
+  .contact_info {
+  
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: #81807D;;
+  }
+  
+  
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .footer {
+      flex-direction: column; /* Stack sections vertically */
+      align-items: center;
+      text-align: center;
+    }
+  
+    .footer>div {
+      flex: 1 1 100%; /* Each section takes the full width */
+      margin: 15px 0;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .footer {
+      padding: 10px;
+    }
+  
+    .links {
+      font-size: 14px; /* Make text smaller on very small screens */
+    }
+  
+    .social-icons a {
+      font-size: 18px;
+    }
+  }
