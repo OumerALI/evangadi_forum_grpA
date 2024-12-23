@@ -1,0 +1,77 @@
+
+.form {
+  text-align: center;
+  width: 50%;
+  padding: 20px 30px;
+  box-sizing: border-box;
+}
+
+.form h2 {
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #333;
+}
+
+.form input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+.form input:focus{
+  outline: none;
+  border-bottom: 3px solid #ff6600;
+}
+
+/* Ensure the password input field and icon align correctly */
+.password-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.toggle-password-icon {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #333;
+}
+
+.toggle-password-icon:hover {
+  color: #ff6600; /* Change color when hovered */
+}
+
+
+.form button {
+  width: 100%;
+  padding: 10px;
+  background: #007bff;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.form button:hover {
+  background: #ff6600;
+}
+
+.form p {
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+}
+
+.form .toggle-link {
+  color: #ff6600;
+  cursor: pointer;
+}
+
+form a{
+color: #ff6600;
+}
