@@ -7,9 +7,16 @@ import PwChange from "../PwChange/PwChange";
 
 const Landing = () => {
 
+ 
+
+  // State to track which form to show (Login, Register, or PasswordReset)
+  const [currentForm, setCurrentForm] = useState("login"); // Default form is login
+=======
+
   // State to track the current form
-  const [currentForm, setCurrentForm] = useState("login");
+
   const [animationDirection, setAnimationDirection] = useState(""); 
+
 
   // Function to switch to login form
   const switchToLogin = () => {
