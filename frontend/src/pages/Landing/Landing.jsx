@@ -6,10 +6,7 @@ import { Link } from "react-router-dom";
 import PwChange from "../PwChange/PwChange";
 
 const Landing = () => {
-  // const [currentView, setCurrentView] = useState("signIn"); // Default to Sign In
-
-  // const switchToSignUp = () => setCurrentView("signUp");
-  // const switchToSignIn = () => setCurrentView("signIn");
+ 
 
   // State to track which form to show (Login, Register, or PasswordReset)
   const [currentForm, setCurrentForm] = useState("login"); // Default form is login
