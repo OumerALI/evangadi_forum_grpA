@@ -11,7 +11,7 @@ const Login = ({ switchToRegister, switchToPasswordReset }) => {
   const emailDom = useRef();
   const passwordDom = useRef();
 
-  // State to handle messages for login and signup
+  // State to handle messages for login
   const [loginMessage, setLoginMessage] = useState("");
   const [messageType, setMessageType] = useState(""); // "success" or "error"
 
@@ -39,6 +39,7 @@ const Login = ({ switchToRegister, switchToPasswordReset }) => {
         localStorage.setItem("token", data.token);
         setTimeout(() => {
           navigate("/home");
+          window.location.reload();
         }, 2000);
       } else {
         // If response is not successful, set error message

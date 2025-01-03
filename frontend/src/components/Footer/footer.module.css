@@ -3,6 +3,7 @@
 footer {
   display: flex;
   justify-content: space-around;
+<<<<<<< HEAD
   background: #37415a; /* Dark background for footer */
   color: #ffffff; /* White text color */
   padding: 40px 20px;
@@ -15,10 +16,23 @@ footer a {
 
 footer h3 {
   color: #ffffff; /* White color for headings */
+=======
+  background: #37415A;
+  color: #ffffff;
+  padding: 40px 20px;
+}
+footer a{
+    text-decoration: none;
+    color: #81807D;;
+}
+footer h3{
+    color: #ffffff;
+>>>>>>> 6a241a0e43bdc4e2f60190fea98b3e1e2cb43ada
 }
 
 /* Styling for the social media SVG icons */
 .socialMedia__link svg {
+<<<<<<< HEAD
   border: 1px solid #ffffff; /* White border around the icons */
   border-radius: 50%; /* Makes the icons round */
   width: 50px; /* Sets the width of the icons */
@@ -48,10 +62,38 @@ footer h3 {
   display: flex;
   flex-direction: column;
   justify-content: center;
+=======
+    
+    margin-top: 20px;
+    border-radius: 50%; 
+    width: 50px; 
+    height: 50px; 
+    padding: 12px; 
+}
+
+.social_icons{
+    display: flex;
+    flex-direction: column;
+}
+.social_icons a {
+  margin: 0 10px;
+  color: #ffffff;
+  /* font-size: 18px; */
+}
+
+.social_icons a:hover {
+  color: #ff6600;
+}
+.links{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+>>>>>>> 6a241a0e43bdc4e2f60190fea98b3e1e2cb43ada
 }
 
 .links a {
   text-decoration: none;
+<<<<<<< HEAD
   color: #81807d; /* Light gray color for links */
 }
 
@@ -64,10 +106,24 @@ footer h3 {
   flex-direction: column;
   justify-content: center;
   color: #81807d; /* Light gray color */
+=======
+}
+
+.links a:hover {
+  color: #ff6600;
+}
+.contact_info {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #81807D;;
+>>>>>>> 6a241a0e43bdc4e2f60190fea98b3e1e2cb43ada
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
+<<<<<<< HEAD
   footer {
     flex-direction: column; 
     align-items: center; 
@@ -93,3 +149,36 @@ footer h3 {
     font-size: 18px; 
   }
 }
+=======
+    footer {
+        flex-direction: column; 
+         align-items: center; 
+        padding: 20px; 
+    }
+
+    .social_icons, .links, .contact_info {
+        width: 100%; 
+        text-align: center; 
+        margin: 10px 0; 
+    }
+}
+
+
+@media (max-width: 480px) {
+    footer {
+        padding: 10px; 
+    }
+
+    .links {
+        font-size: 14px; 
+    }
+
+    .social_icons a {
+        font-size: 18px; 
+    }
+
+    .contact_info span {
+        font-size: 12px; 
+    }
+}
+>>>>>>> 6a241a0e43bdc4e2f60190fea98b3e1e2cb43ada
