@@ -3,77 +3,31 @@
 footer {
   display: flex;
   justify-content: space-around;
-<<<<<<< HEAD
-  background: #37415a; /* Dark background for footer */
-  color: #ffffff; /* White text color */
-  padding: 40px 20px;
-}
 
-footer a {
-  text-decoration: none;
-  color: #81807d; /* Light gray color for links */
-}
-
-footer h3 {
-  color: #ffffff; /* White color for headings */
-=======
-  background: #37415A;
+  background: #37415a;
   color: #ffffff;
   padding: 40px 20px;
 }
-footer a{
-    text-decoration: none;
-    color: #81807D;;
+footer a {
+  text-decoration: none;
+  color: #81807d;
 }
-footer h3{
-    color: #ffffff;
->>>>>>> 6a241a0e43bdc4e2f60190fea98b3e1e2cb43ada
+footer h3 {
+  color: #ffffff;
 }
 
 /* Styling for the social media SVG icons */
 .socialMedia__link svg {
-<<<<<<< HEAD
-  border: 1px solid #ffffff; /* White border around the icons */
-  border-radius: 50%; /* Makes the icons round */
-  width: 50px; /* Sets the width of the icons */
-  height: 50px; /* Sets the height of the icons */
-  padding: 12px; /* Adds padding inside the icons */
-  margin: 5px; /* Adds margin between icons */
+  margin-top: 20px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  padding: 12px;
 }
 
-/* Align social icons vertically */
 .social_icons {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center align icons */
-}
-
-/* Style for social media links */
-.social_icons a {
-  margin: 0 10px;
-  color: #ffffff; /* White color for social links */
-}
-
-.social_icons a:hover {
-  color: #ff6600; /* Orange color on hover */
-}
-
-.links {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-=======
-    
-    margin-top: 20px;
-    border-radius: 50%; 
-    width: 50px; 
-    height: 50px; 
-    padding: 12px; 
-}
-
-.social_icons{
-    display: flex;
-    flex-direction: column;
 }
 .social_icons a {
   margin: 0 10px;
@@ -84,61 +38,41 @@ footer h3{
 .social_icons a:hover {
   color: #ff6600;
 }
-.links{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
->>>>>>> 6a241a0e43bdc4e2f60190fea98b3e1e2cb43ada
-}
-
-.links a {
-  text-decoration: none;
-<<<<<<< HEAD
-  color: #81807d; /* Light gray color for links */
-}
-
-.links a:hover {
-  color: #ff6600; /* Orange color on hover */
-}
-
-.contact_info {
+.links {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: #81807d; /* Light gray color */
-=======
 }
 
 .links a:hover {
   color: #ff6600;
 }
 .contact_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #81807d;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: #81807D;;
->>>>>>> 6a241a0e43bdc4e2f60190fea98b3e1e2cb43ada
-}
+  /* Responsive Design */
 
-/* Responsive Design */
-@media (max-width: 768px) {
-<<<<<<< HEAD
   footer {
-    flex-direction: column; 
-    align-items: center; 
-    text-align: center; 
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
   }
 
-  footer > div {
-    flex: 1 1 100%;
-    margin: 15px 0; 
+  .social_icons,
+  .links,
+  .contact_info {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
   }
 }
 
 @media (max-width: 480px) {
   footer {
-    padding: 10px; 
+    padding: 10px;
   }
 
   .links {
@@ -146,39 +80,10 @@ footer h3{
   }
 
   .social_icons a {
-    font-size: 18px; 
+    font-size: 18px;
+  }
+
+  .contact_info span {
+    font-size: 12px;
   }
 }
-=======
-    footer {
-        flex-direction: column; 
-         align-items: center; 
-        padding: 20px; 
-    }
-
-    .social_icons, .links, .contact_info {
-        width: 100%; 
-        text-align: center; 
-        margin: 10px 0; 
-    }
-}
-
-
-@media (max-width: 480px) {
-    footer {
-        padding: 10px; 
-    }
-
-    .links {
-        font-size: 14px; 
-    }
-
-    .social_icons a {
-        font-size: 18px; 
-    }
-
-    .contact_info span {
-        font-size: 12px; 
-    }
-}
->>>>>>> 6a241a0e43bdc4e2f60190fea98b3e1e2cb43ada
