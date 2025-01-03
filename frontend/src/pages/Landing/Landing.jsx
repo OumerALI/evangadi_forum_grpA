@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { useState } from "react";
 import Login from "../Login/Login";
 import Register from "../Register/Register";
@@ -6,22 +8,17 @@ import { Link } from "react-router-dom";
 import PwChange from "../PwChange/PwChange";
 
 const Landing = () => {
-
- 
-
   // State to track which form to show (Login, Register, or PasswordReset)
-  const [currentForm, setCurrentForm] = useState("login"); // Default form is login
-=======
+  const [currentForm, setCurrentForm] = useState("login"); // Default form is log
 
   // State to track the current form
 
-  const [animationDirection, setAnimationDirection] = useState(""); 
-
+  const [animationDirection, setAnimationDirection] = useState("");
 
   // Function to switch to login form
   const switchToLogin = () => {
     setAnimationDirection("slide-in-left");
-    setTimeout(() => setCurrentForm("login"), 300); 
+    setTimeout(() => setCurrentForm("login"), 300);
   };
 
   // Function to switch to register form
