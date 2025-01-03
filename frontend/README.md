@@ -13,3 +13,4 @@ Currently, two official plugins are available:
   "homepage": "https://oumerali.github.io/evangadi_forum_grpA/",
   base: "/evangadi_forum_grpA/",
 https://medium.com/@aishwaryaparab1/deploying-vite-deploying-vite-app-to-github-pages-166fff40ffd3
+"homepage": "https://{username}.github.io/{repo-name}/"
