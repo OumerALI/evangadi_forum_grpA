@@ -1,0 +1,70 @@
+/** @format */
+
+.howLink {
+  padding: 20px;
+  background-color: #f9f9f9; 
+}
+
+.peopleNetTransparent_bg {
+  background: rgba(255, 255, 255, 0.8); 
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.title h2 {
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.paragraphs {
+  max-width: 800px;
+  margin: 0 auto; 
+  line-height: 1.6; 
+}
+
+.paragraphs h1 {
+  font-size: 2rem;
+  color: #1a1a1a; 
+  margin-bottom: 15px;
+}
+
+.paragraphs h3 {
+  font-size: 1.5rem;
+  color: #444; 
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.paragraphs p {
+  margin-bottom: 15px;
+}
+
+.paragraphs ul {
+  margin-left: 20px;
+  list-style-type: disc;
+}
+
+.paragraphs ul li {
+  margin-bottom: 10px; 
+}
+
+@media (max-width: 768px) {
+  .title h2 {
+    font-size: 2rem; 
+  }
+
+  .paragraphs h1 {
+    font-size: 1.75rem;
+  }
+
+  .paragraphs h3 {
+    font-size: 1.25rem;
+  }
+}

@@ -1,3 +1,5 @@
+/** @format */
+
 import React from "react";
 import classes from "./footer.module.css";
 import Logo from "../../assets/images/EvangadiLogo-footer.png";
@@ -18,13 +20,13 @@ const Footer = () => {
             </Link>
           </div>
           <div className={classes.socialMedia__link}>
-            <Link to="#">
+            <Link to="https://www.facebook.com/evangaditech">
               <FaFacebookF />
             </Link>
-            <Link to="#">
+            <Link to="https://www.instagram.com/evangaditech/">
               <FaInstagram />
             </Link>
-            <Link to="#">
+            <Link to="https://www.youtube.com/@EvangadiTech">
               <FaYoutube />
             </Link>
           </div>
@@ -39,7 +41,8 @@ const Footer = () => {
           <h3>Contact Info</h3>
           <span>Evangadi Networks</span>
           <span>
-            Email:<Link to="mailto:support@evangadi.com">support@evangadi.com</Link>
+            Email:
+            <Link to="mailto:support@evangadi.com">support@evangadi.com</Link>
           </span>
           <span>Phone: +1-202-386-2702</span>
         </div>
