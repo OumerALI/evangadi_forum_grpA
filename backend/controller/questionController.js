@@ -1,4 +1,4 @@
-const dbConection = require("../db/dbConfig");
+const dbConnection = require("../db/dbConfig");
 const { StatusCodes } = require("http-status-codes");
 
 async function ask(req, res) {
@@ -12,7 +12,7 @@ async function ask(req, res) {
   try {
     const userid = req.user.userid;
 
-    await dbConection.query(
+    await dbConnection.query(
       "INSERT INTO questions (questionid,userid,title,description) VALUES (UUID(),?,?,?)",
       [userid, title, description]
     );
@@ -31,7 +31,7 @@ async function ask(req, res) {
 
 async function getAllQuestions(req, res) {
   try {
-    const [questions] = await dbConection.query(
+    const [questions] = await dbConnection.query(
       "SELECT q.questionid, q.title, q.description, u.username, q.created_at FROM questions q JOIN users u ON q.userid = u.userid ORDER BY q.id DESC"
     );
     // console.log(questions);
@@ -55,7 +55,7 @@ async function getSingleQuestion(req, res) {
   const questionId = req.params.questionid;
 
   try {
-    const [[question]] = await dbConection.query(
+    const [[question]] = await dbConnection.query(
       "SELECT * FROM questions WHERE questionid=?",
       [questionId]
     );
@@ -79,9 +79,9 @@ async function getSingleQuestion(req, res) {
 }
 
 const editQuestion = async (req, res) => {
-  const { questionid } = req.params; // Extract the questionId from the URL parameter
-  const { title, description} = req.body; // Extract the updated title, description (question), and answer from the request body
-  const { userid } = req.user; // Extract the logged-in user's ID (assumes authentication middleware)
+  const { questionid } = req.params; 
+  const { title, description} = req.body; 
+  const { userid } = req.user;
 
   if (!description || !title) {
     return res
@@ -92,7 +92,7 @@ const editQuestion = async (req, res) => {
   try {
     // Check if the question exists ------and if the logged-in user is the one who posted it
 
-    const [existingQuestion] = await dbConection.query(
+    const [existingQuestion] = await dbConnection.query(
       "SELECT * FROM questions WHERE questionid = ?",
       [questionid]
     );
@@ -115,18 +115,18 @@ const editQuestion = async (req, res) => {
     let updateValues = [updatedTitle, updatedDescription, questionid]; // Add the updated description and title
 
     // Execute the query to update the question
-    await dbConection.query(updateQuery, updateValues);
+    await dbConnection.query(updateQuery, updateValues);
 
     
       // Check if the answer already contains '(original answer)'
-      const [existingAnswers] = await dbConection.query(
+      const [existingAnswers] = await dbConnection.query(
         "SELECT * FROM answers WHERE questionid = ? AND answer NOT LIKE '%(posted before question modification)%'",
         [questionid]
       );
 
       if (existingAnswers.length > 0) {
         // If there are answers that do not already contain '(original answer)', append it
-        await dbConection.query(
+        await dbConnection.query(
           "UPDATE answers SET answer = CONCAT(answer, ' (posted before question modification)') WHERE questionid = ? AND answer NOT LIKE '%(posted before question modification)%'",
           [questionid]
         );

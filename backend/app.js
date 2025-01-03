@@ -7,7 +7,7 @@ const cors = require("cors");
 app.use(cors());
 
 // db connection
-const dbConection = require("./db/dbConfig");
+const dbConnection = require("./db/dbConfig");
 
 // authentication middleware
 const authMiddleware = require("./middleware/authMiddleware");
@@ -31,7 +31,7 @@ app.use("/api", authMiddleware, answerRoute);
 
 async function start() {
   try {
-    const result = await dbConection.execute("select 'test'");
+    const result = await dbConnection.execute("select 'test'");
     await app.listen(port);
     console.log("database connection established");
     console.log(`listening on ${port}`);

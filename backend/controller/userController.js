@@ -1,5 +1,5 @@
 // db connection
-const dbConection = require("../db/dbConfig");
+const dbConnection = require("../db/dbConfig");
 
 // bcrypt to hide our password
 const bcrypt = require("bcrypt");
@@ -18,7 +18,7 @@ async function register(req, res) {
   }
 
   try {
-    const [user] = await dbConection.query(
+    const [user] = await dbConnection.query(
       "SELECT username,userid FROM users WHERE username=? or email=?",
       [username, email]
     );
@@ -37,7 +37,7 @@ async function register(req, res) {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    await dbConection.query(
+    await dbConnection.query(
       "INSERT INTO users (username,firstname,lastname,email,password) VALUES (?,?,?,?,?)",
       [username, firstname, lastname, email, hashedPassword]
     );
@@ -62,7 +62,7 @@ async function login(req, res) {
   }
 
   try {
-    const [user] = await dbConection.query(
+    const [user] = await dbConnection.query(
       "SELECT username,userid,password FROM users WHERE email=?",
       [email]
     );

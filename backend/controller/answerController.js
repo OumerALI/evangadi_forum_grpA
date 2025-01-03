@@ -1,4 +1,4 @@
-const dbConection = require("../db/dbConfig");
+const dbConnection = require("../db/dbConfig");
 const { StatusCodes } = require("http-status-codes");
 
 async function getAnswer(req,res) {
@@ -6,7 +6,7 @@ async function getAnswer(req,res) {
   const questionid = req.params.questionid;
   
     try {
-      const [answers] = await dbConection.query(
+      const [answers] = await dbConnection.query(
         "SELECT a.answerid, a.answer, u.username, a.created_at FROM answers a JOIN users u ON a.userid = u.userid WHERE a.questionid =?",
         [questionid]
       );
@@ -41,7 +41,7 @@ async function postAnswer(req,res) {
 
       const userid = req.user.userid;
 
-      await dbConection.query(
+      await dbConnection.query(
         "INSERT INTO answers (userid,questionid,answer) VALUES (?,?,?)",
         [userid, questionid, answer]
       );
@@ -75,7 +75,7 @@ const editAnswer = async (req, res) => {
 
   try {
     // Check if the answer exists in the database
-    const [existingAnswer] = await dbConection.query(
+    const [existingAnswer] = await dbConnection.query(
       "SELECT * FROM answers WHERE answerid = ?",
       [answerid]
     );
@@ -85,7 +85,7 @@ const editAnswer = async (req, res) => {
     updatedAnswer = `${updatedAnswer} (Updated on ${new Date().toISOString()})`;
 
     // Update the answer in the database
-    await dbConection.query(
+    await dbConnection.query(
       "UPDATE answers SET answer = ? WHERE answerid = ?",
       [updatedAnswer, answerid]
     );
